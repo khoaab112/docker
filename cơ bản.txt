@@ -1,0 +1,26 @@
+#tạo container đầu tiên (nó pull container có sẵn của docker)
+$ docker run -dp 80:80 docker/getting-started
+
+#Hiểu cơ bản , cấu trúc cơ bản : https://docs.docker.com/get-started/02_our_app/
+    + clone dự án mẫu nodejd : git clone https://github.com/docker/getting-started-app.git
+    + vào thư mục dự án tạo file có tên : Dockerfile 
+    + thêm nội dung sau vào file : 
+        ----------------------------------------------------------------
+        # syntax=docker/dockerfile:1
+            FROM node:18-alpine
+            WORKDIR /app
+            COPY . .
+            RUN yarn install --production
+            CMD ["node", "src/index.js"]
+            EXPOSE 3000
+        ----------------------------------------------------------------
+    * ta có thể giải thích cơ bản như sau:
+      - tải node:18
+      - tạo thư mục app để lưu  các dữ liệu chạy dự án
+      - copy dự án vào app
+      - chạy lệnh yarn install --production
+      - lệnh chạy dự án
+      - chạy trên port 3000
+    + tải các image : docker build -t getting-started .
+    + run docker : docker run -dp 127.0.0.1:3001:3000 getting-started
+            * chạy docker với domain trên local windows với 3001 là cổng chạy trên windows  , 3000 là cổng của docker
