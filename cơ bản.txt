@@ -1,6 +1,8 @@
 #tạo container đầu tiên (nó pull container có sẵn của docker)
 $ docker run -dp 80:80 docker/getting-started
 
+********************************************************************************
+
 #Hiểu cơ bản , cấu trúc cơ bản : https://docs.docker.com/get-started/02_our_app/
     + clone dự án mẫu nodejd : git clone https://github.com/docker/getting-started-app.git
     + vào thư mục dự án tạo file có tên : Dockerfile 
@@ -24,3 +26,20 @@ $ docker run -dp 80:80 docker/getting-started
     + tải các image : docker build -t getting-started .
     + run docker : docker run -dp 127.0.0.1:3001:3000 getting-started
             * chạy docker với domain trên local windows với 3001 là cổng chạy trên windows  , 3000 là cổng của docker
+
+********************************************************************************
+
+Cập nhật source code cho dự án : https://docs.docker.com/get-started/03_updating_app/
+    1. Thay đổi nào đó ở dự án
+    2.  build docker < docker build >:  docker build -t getting-started .
+            getting-started là tên id container || giấu chấm là bắt buộc
+    3. run lại dự án : docker run -dp 127.0.0.1:3000:3000 getting-started
+
+********************************************************************************
+ # Danh sách container :  docker ps 
+
+ # Dừng container : docker stop <the-container-id>
+
+ # Xóa container : docker rm <the-container-id>
+ 
+
