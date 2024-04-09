@@ -1,0 +1,3 @@
+# mỗi container chỉ nên làm một việc ,  và hoàn thành tốt việc đó
+# 2 hay nhiều container mà chung một network thì có thể giao  tiếp được với nhau
+# 

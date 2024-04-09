@@ -1,3 +1,8 @@
+********************************************************************************
+Khái niệm :
+volume : có thể hiểu nơi chứa data <database>
+********************************************************************************
+
 #tạo container đầu tiên (nó pull container có sẵn của docker)
 $ docker run -dp 80:80 docker/getting-started
 
