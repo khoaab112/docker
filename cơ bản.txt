@@ -46,5 +46,7 @@ Cập nhật source code cho dự án : https://docs.docker.com/get-started/03_u
  # Dừng container : docker stop <the-container-id>
 
  # Xóa container : docker rm <the-container-id>
+
+ #connect  mysql :  docker exec -it <mysql-container-id || name-container> mysql -u root -p 
  
 
