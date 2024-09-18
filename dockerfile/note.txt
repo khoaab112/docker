@@ -1,0 +1,4 @@
+dockerfile : có thể hiểu nó là file config của docker 
+- nó sẽ custome trên một image đã có 
+- khi file dockerfile : có thay đổi thi ta nên thay đổi versio container
+- khi có thay đổi về code của dự án ta xóa container đó đi và chạy lại container đó để nó lấy image mới build lại

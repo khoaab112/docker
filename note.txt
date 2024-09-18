@@ -1,3 +1,12 @@
 # mỗi container chỉ nên làm một việc ,  và hoàn thành tốt việc đó
 # 2 hay nhiều container mà chung một network thì có thể giao  tiếp được với nhau
-# 
+# khi có thay đổi của project thì ta chỉ cần stop container rồi run lại container thì nó tự build lại nhưng ta cần ánh xạ đến nơi trỏ dự án
+
+
+Dockerfile:
+Mục đích: Dùng để định nghĩa cách xây dựng một image Docker.
+Cách sử dụng: Trong Dockerfile, bạn viết các lệnh cụ thể (dựa trên một base image) để cài đặt các gói phần mềm, copy file, thiết lập biến môi trường, chỉ định lệnh chạy khi container khởi động, v.v.
+
+Docker Compose (docker-compose.yml):
+Mục đích: Dùng để định nghĩa và quản lý nhiều container hoạt động cùng nhau, chẳng hạn như một hệ thống bao gồm nhiều dịch vụ (web, database, cache, v.v.).
+Cách sử dụng: Docker Compose tập hợp các Docker image khác nhau (hoặc bạn có thể build từ Dockerfile), chỉ định cách các container giao tiếp với nhau, gắn volume, thiết lập network, v.v.

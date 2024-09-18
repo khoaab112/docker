@@ -1,0 +1,7 @@
+#Image
+dowload image : docker pull mysql
+
+
+#Container : tạo container từ images
+1 Image có thể tạo ra được nhiều container
+- docker run -d

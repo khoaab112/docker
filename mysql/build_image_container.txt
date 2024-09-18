@@ -1,0 +1,8 @@
+pull image về máy : docker pull mysql:5.7
+    . 5.7 là tên tag version
+tạo container từ image vừa pull :  docker run --name mysql57 -p 6603:3306 -v D:/project/docker/data_volume:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=1234 -d mysql:5.7 
+    .mysql57 : tên container 
+    .6603:3306 : cổng client kết nới tới : cổng network trong docker .
+    .mysql:5.7 : tên image
+    . D:/project/docker/data_volume:/var/opt/mysql  ****** đường dẫn lưu data host : đưỡng dẫn data cần sao lưu  (ánh xạ)
+

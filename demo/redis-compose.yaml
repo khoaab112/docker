@@ -1,0 +1,11 @@
+version: '3.7'
+
+services:
+  redis_1:
+    image: 'redis:6.0.6'
+    ports:
+      - '6371:6379'
+  redis_2:
+    image: 'redis:6.0.6'
+    ports:
+      - '6372:6379'

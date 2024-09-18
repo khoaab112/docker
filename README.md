@@ -7,6 +7,10 @@
 -- `Dockerfiles` : 
     khái niệm : 
 -- `images` :
+    Image :
+        . là khuôn mẫu, lớp chứa các file cần thiết để tạo nên một container
+        . Chứa những tài nguyên có sẵn
+        . Không được tiếp cận vào CPU,memory, storage
     khái niệm : 
         - image là một file bất biến  - không thay đổi, chứa các source code, libraries, dependencies, tools ,các files khác cần thiết cho một ứng dụng để chạy
         - nó có tính chất read-only , ta có thể nói nó như chụp màn hình nhanh (snapshots)
@@ -20,6 +24,8 @@
 -- `network`
 -- `data volumes`
 -- `Container` :
+    .Tồn tại trên host với một IP
+    .Được deploy , chạy , và xóa bỏ thông qua remote client
     khái niệm : 
         - là một run-time environment mà ở đó người dùng có thể chạy một ứng dụng độc lập.
         - container khá là gọn nhẹ và cho phép bạn chạy ứng dụng trong đó rất nhanh và dễ dàng

@@ -1,0 +1,7 @@
+volume nhắm lưu trữ data của các container trên máy chủ hiển tại hoặc trên chính docker 
+-v "phạm vi host" volumn :"phạm vi container" volume
+
+ex : khi run một container mới ta chỉ định volume cho nó hoặc không thông qua -v 
+nếu thêm -v thì có sét
+- v 
+. tạo dữ liệu ánh xạ trên win cần theo format sau : D:/project/docker/data_volume:/var/opt/mysql (ví dụ)
