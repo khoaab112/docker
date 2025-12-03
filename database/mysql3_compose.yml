@@ -1,0 +1,17 @@
+version: "4.0"
+
+services:
+  db:
+    image: mysql:8
+    container_name: my-mysql3
+    env_file: # config from env file
+      - .env 
+    ports: # port host : port container
+      - "${MYSQL_PORT}:3306"
+    volumes:
+      - db_data:/var/lib/mysql
+
+volumes:
+  db_data:
+
+# To run: docker-compose -f database/mysql3_compose.yml up -d
