@@ -1,0 +1,6 @@
+build server 
+build db
+build client
+buil nginx
+kết nối các hệ thống lại với nhau
+build 1 hệ thống lưu file

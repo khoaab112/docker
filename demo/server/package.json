@@ -1,11 +1,13 @@
 {
     "dependencies": {
-        "express": "^5.1.0"
+        "dotenv": "^17.2.3",
+        "express": "^5.1.0",
+        "mysql2": "^3.15.3"
     },
     "scripts": {
-        "start": "node --watch app.js",
-        "dev": "nodemon --legacy-watch app.js",
-        "pro": "node app.js"
+        "start": "node --watch src/server.js",
+        "dev": "nodemon --legacy-watch src/server.js",
+        "pro": "node src/server.js"
     },
     "devDependencies": {
         "nodemon": "^3.1.11"

@@ -1,5 +1,11 @@
 docker-compose -f mysql-compose.yaml up -d
 
+
+reset volum
+docker-compose -f mysql-compose.yaml down -v
+run 
+docker-compose -f mysql-compose.yaml up -d
+
 # ở đây 
 ports:
       - '3307:3306' có nghĩa là pc sẽ giao tiếp với mysql của docker  qua  cổng 3307 còn cổng 3306 thì docker  chạy
