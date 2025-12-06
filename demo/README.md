@@ -23,3 +23,12 @@ docker compose -f docker-compose.dev.yml up --build
 build lại hoàn toàn : 
 docker compose -f docker-compose.dev.yml up --build
 
+build lại hoàn toàn xóa cache: 
+docker compose -f docker-compose_v2.dev.yml build --no-cache
+docker compose -f docker-compose_v2.dev.yml up -d
+
+
+xem log :
+docker logs <container_name>
+docker logs -f  : read-time
+

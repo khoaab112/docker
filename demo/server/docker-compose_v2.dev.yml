@@ -24,6 +24,8 @@ services:
     volumes:
       - .:/app
       - /app/node_modules
+      - ./storage/logs:/app/storage/logs  # Mount logs directory  storage/logs is container
+
 
 networks:
   app-net:

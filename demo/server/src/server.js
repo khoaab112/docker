@@ -1,10 +1,15 @@
 const express = require("express");
+const cors = require("cors");
 const routes = require("./routes");
 const { migrate } = require("./migrate");
 require("dotenv").config();
 
 const app = express();
 const PORT = process.env.SERVER_PORT || 3000;
+
+app.use(cors({
+    origin: "*"
+}));
 
 async function startServer() {
     await migrate();
