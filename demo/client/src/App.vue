@@ -10,6 +10,7 @@ async function callApi() {
 
   try {
     const res = await fetch(`${import.meta.env.VITE_API_URL}/users`)
+    console.log('API Response Status:', import.meta.env.VITE_API_URL)
     const data = await res.json()
     result.value = data
   } catch (err) {
