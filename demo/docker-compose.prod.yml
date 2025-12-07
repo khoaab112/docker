@@ -1,0 +1,46 @@
+version: "3.9"
+name: docker-compose-prod
+services:
+  db:
+    image: mysql:8.0
+    restart: always
+    env_file:
+      - .env
+    ports:
+      - "3307:3306"
+    networks:
+      - app-net
+    volumes:
+      - db:/var/lib/mysql
+
+  server:
+    build:
+      context: ./server
+      dockerfile: Dockerfile_production
+    restart: always
+    env_file:
+      - .env
+    ports:
+      - "3000:3000"
+    networks:
+      - app-net
+    depends_on:
+      - db
+
+  client:
+    build:
+      context: ./client
+      dockerfile: Dockerfile_production
+    restart: always
+    ports:
+      - "80:80"
+    env_file:
+      - ./client/.env
+    networks:
+      - app-net
+
+networks:
+  app-net:
+
+volumes:
+  db:

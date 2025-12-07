@@ -9,7 +9,7 @@ async function callApi() {
   result.value = null
 
   try {
-    const res = await fetch('http://localhost:3000/api/users')
+    const res = await fetch(`${import.meta.env.VITE_API_URL}/users`)
     const data = await res.json()
     result.value = data
   } catch (err) {
@@ -39,7 +39,43 @@ async function callApi() {
 
     <div style="margin-top: 20px;">
       <div v-if="loading">⏳ Đang tải dữ liệu...</div>
-      <pre v-if="result">{{ result }}</pre>
+
+      <!-- Nếu result là object -->
+      <div v-else-if="result && typeof result === 'object' && !Array.isArray(result)">
+        <div
+          v-for="(value, key) in result"
+          :key="key"
+          style="
+            border: 1px solid #ccc;
+            padding: 12px;
+            margin-bottom: 8px;
+            border-radius: 6px;
+            background: #f9f9f9;
+          "
+        >
+          <strong>{{ key }}:</strong> {{ value }}
+        </div>
+      </div>
+
+      <!-- Nếu result là array -->
+      <div v-else-if="Array.isArray(result)">
+        <div
+          v-for="(item, index) in result"
+          :key="index"
+          style="
+            border: 1px solid #42b883;
+            padding: 12px;
+            margin-bottom: 8px;
+            border-radius: 6px;
+            background: #e0f7f1;
+          "
+        >
+          {{ item }}
+        </div>
+      </div>
+
+      <!-- Fallback -->
+      <pre v-else>{{ result }}</pre>
     </div>
   </div>
 </template>

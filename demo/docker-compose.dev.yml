@@ -1,0 +1,52 @@
+# Docker Compose configuration for development environment
+# server + mysql + client
+# hot reload for both server and client
+version: "3.9"
+name: docker-compose-dev
+services:
+  db:
+    image: mysql:8.0
+    env_file:
+      - .env
+    ports:
+      - "3307:3306"
+    networks:
+      - app-net
+    volumes:
+      - db:/var/lib/mysql
+
+  server:
+    build:
+      context: ./server
+      dockerfile: Dockerfile
+    env_file:
+      - .env
+    ports:
+      - "3000:3000"
+    networks:
+      - app-net
+    volumes:
+      - ./server:/app
+      - /app/node_modules
+      - ./storage/logs:/app/storage/logs # Mount logs directory  storage/logs is container
+
+  client:
+    build:
+      context: ./client
+      dockerfile: Dockerfile
+    env_file:
+      - ./client/.env
+    ports:
+      - "5173:5173"
+    networks:
+      - app-net
+    volumes:
+      - ./client:/app
+      - /app/node_modules
+
+networks:
+  app-net:
+
+
+volumes:
+  db:
