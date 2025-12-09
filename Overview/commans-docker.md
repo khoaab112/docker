@@ -7,7 +7,12 @@ Tài liệu này tổng hợp toàn bộ các câu lệnh Docker quan trọng nh
 ## 📌 1. Docker Images
 
 ### **1.1. Build Image**
-
+*basic syntax* 
+`bắt buộc phải có giấu . ở cuối câu lệnh, nó được hiểu là build Dockerfile ở thư mục hiện tại`
+```
+docker build .
+```
+*Syntax customization*
 ```
 docker build -t <name>:<tag> .
 ```
@@ -15,9 +20,9 @@ docker build -t <name>:<tag> .
 **Options quan trọng:**
 
 * `-t` : đặt tên + tag
-* `-f <Dockerfile>` : chỉ định Dockerfile
+* `-f <Dockerfile>` : chỉ định Dockerfile, đường dẫn của Dockerfile
 * `--build-arg KEY=VALUE` : truyền ARG
-* `--no-cache` : build sạch, không dùng cache
+* `--no-cache` : build mới, không dùng cache
 * `--platform linux/amd64` : build đa kiến trúc
 
 ---
@@ -31,8 +36,8 @@ docker images
 ### **1.3. Xoá image**
 
 ```
-docker rmi <image>
-docker rmi -f <image>      # Force
+docker rmi <image>         # Xoá an toàn – từ chối nếu image đang được dùng
+docker rmi -f <image>      # Xoá cưỡng bức – bỏ qua mọi check đang chạy
 ```
 
 ### **1.4. Pull image**
@@ -145,7 +150,15 @@ docker volume ls
 ```
 docker volume inspect mydata
 ```
-
+**Lệnh này cho bạn xem metadata của một volume, bao gồm:**
+`
+    Volume nằm ở đâu trên ổ đĩa host
+    Driver của volume
+    Container nào đang dùng volume
+    Ngày tạo
+    Mount options
+    Labels, scope…
+`
 ### **3.4. Xoá volume**
 
 ```
@@ -173,7 +186,15 @@ docker network ls
 ```
 docker network inspect mynetwork
 ```
-
+***Lệnh này dùng để xem metadata + cấu trúc của một Docker network, bao gồm:***
+`
+Loại network (bridge, overlay…)
+Subnet, Gateway
+IP range
+Các container đang kết nối vào network
+Driver của network
+Các rule liên quan đến routing
+`
 ### **4.4. Xoá network**
 
 ```
